@@ -1,6 +1,6 @@
 provider "google" {
-  credentials = file("gcp_credentials.json")
-  project = "api-5906825724147689161-962454"
+  credentials = file("../gcp_credentials.json")
+  project = "staging-265722"
   region = "asia-southeast1"
 }
 
