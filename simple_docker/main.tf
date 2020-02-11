@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = file("../gcp_credentials.json")
+  # credentials = file("../gcp_credentials.json")
   project     = "staging-265722"
   region      = "asia-southeast1"
 }
@@ -7,8 +7,8 @@ provider "google" {
 # To change container-optimized image
 variable "boot_image_name" {
   type = string
-  # default= "cos-stable-79-12607-80-0"
-  default = "ubuntu-os-cloud/ubuntu-1404-trusty-v20160602"
+  default= "cos-cloud/cos-stable"
+  # default = "ubuntu-os-cloud/ubuntu-1404-trusty-v20160602"
 }
 
 variable "port_number" {

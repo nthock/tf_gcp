@@ -2,3 +2,4 @@ gcp_credentials.json
 .terraform
 *.tfstate
 *.tfstate.backup
+.env
