@@ -1,5 +1,4 @@
 provider "google" {
-  # credentials = file("../gcp_credentials.json")
   project     = "staging-265722"
   region      = "asia-southeast1"
 }
@@ -8,7 +7,6 @@ provider "google" {
 variable "boot_image_name" {
   type = string
   default= "cos-cloud/cos-stable"
-  # default = "ubuntu-os-cloud/ubuntu-1404-trusty-v20160602"
 }
 
 variable "port_number" {
