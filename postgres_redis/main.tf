@@ -5,7 +5,7 @@ provider "google" {
 
 variable "boot_image_name" {
   type = string
-  default= "cos-cloud/cos-stable"
+  default= "debian-cloud/debian-10"
 }
 
 variable "port_number" {
@@ -44,11 +44,17 @@ resource "google_compute_instance" "default" {
     }
   }
 
+  allow_stopping_for_update = true
+
   network_interface {
     network = "default"
     access_config {
       // Ephemeral IP
     }
+  }
+
+  service_account {
+    scopes = ["cloud-platform"]
   }
 
   metadata_startup_script = file("startup.sh")
