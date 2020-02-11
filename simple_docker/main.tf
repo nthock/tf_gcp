@@ -1,16 +1,18 @@
 provider "google" {
   credentials = file("../gcp_credentials.json")
-  project = "staging-265722"
-  region = "asia-southeast1"
+  project     = "staging-265722"
+  region      = "asia-southeast1"
 }
 
+# To change container-optimized image
 variable "boot_image_name" {
   type = string
-  default= "debian-9-stretch-v20200204"
+  # default= "cos-stable-79-12607-80-0"
+  default = "ubuntu-os-cloud/ubuntu-1404-trusty-v20160602"
 }
 
 variable "port_number" {
-  type = string
+  type    = string
   default = "80"
 }
 
@@ -19,7 +21,7 @@ data "google_compute_network" "default" {
 }
 
 resource "google_compute_firewall" "http-80" {
-  name = "http-80"
+  name    = "http-80"
   network = data.google_compute_network.default.name
 
   allow {
@@ -28,14 +30,15 @@ resource "google_compute_firewall" "http-80" {
 
   allow {
     protocol = "tcp"
-    ports = [var.port_number]
+    ports    = [var.port_number]
   }
 }
 
 resource "google_compute_instance" "default" {
-  name = "default"
+  name         = "default"
   machine_type = "g1-small"
-  zone = "asia-southeast1-a"
+  zone         = "asia-southeast1-a"
+  tags         = ["docker-node"]
 
   boot_disk {
     auto_delete = true
