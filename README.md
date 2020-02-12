@@ -34,6 +34,7 @@ Note that the key must be `GOOGLE_CLOUD_KEYFILE_JSON`. Terraform will automatica
 There are different terraform setups available in this repo:
 * Simple Web Server (`simple_web_server`): Set up a simple HTTP server
 * Simple Docker (`simple_docker`): Set up the instance, and run a simple docker image (`gcr.io/cloud-marketplace/google/nginx1:1.12`)
+* Upload Storage (`upload_storage`): Upload the files to the cloud storage
 
 To run the terraform code, cd into the respective folders (e.g. `cd simple_web_server`), and run the following:
 
