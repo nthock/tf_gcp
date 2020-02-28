@@ -65,3 +65,5 @@ variable "instance_name" {
 }
 ```
 The variable `EnvironmentJustin` will be available in `var.instance_name`.
+
+Another commit
